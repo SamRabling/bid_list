@@ -10,9 +10,11 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'user', component: UserDashboardComponent },
-  { path: 'user/wishlist/:id', component: WishlistComponent },
+  { path: 'user/wishlist', component: WishlistComponent },
+  // add id to above
   { path: 'artworks', component: ArtWorksComponent },
-  { path: 'artworks/:id', component: ShowPieceComponent }
+  { path: 'artworks/show', component: ShowPieceComponent }
+  // add id to above
 ];
 
 @NgModule({
