@@ -16,13 +16,16 @@
         <button type="button" class="btn btn-secondary" >Log out</button>
       </div>
     </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
     <div class="footer">
-      <div class="curator-chat"></div>
-      <div class="other-user-chat"></div>
-      <div class="QA-chat"></div>
+        <div class="curator-chat card"></div>
+        <div class="other-user-chat"></div>
+        <div class="QA-chat"></div>
     </div>
 
-    <router-outlet></router-outlet>
+
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

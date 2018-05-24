@@ -1,0 +1,17 @@
+*{
+  text-align: center;
+}
+
+.display-5{
+  margin-top: 20px;
+}
+
+.artwork-gateway{
+  width:600px;
+  height:200px;
+  border: solid black 1px;
+  border-radius: 20px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;top: 32%;
+}

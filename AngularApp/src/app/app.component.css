@@ -1,0 +1,24 @@
+.main-content{
+  height:600px;
+  margin-left:80px;
+  margin-right:80px;
+}
+
+.footer{
+  vertical-align: bottom;
+  width: auto;
+  height: 50px;
+}
+
+.container
+{
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* .container{
+
+  margin: 0px;
+  padding-left:80px;
+} */
