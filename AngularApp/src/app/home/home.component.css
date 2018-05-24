@@ -7,11 +7,46 @@
 }
 
 .artwork-gateway{
-  width:600px;
-  height:200px;
+  width:100%;
+  height:auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  border-radius: 20px;
+  background-color: rgba(71, 71, 71, 0.959);
+}
+.container{
+  width:601px;
+  height:201px;
   border: solid black 1px;
   border-radius: 20px;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;top: 32%;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
