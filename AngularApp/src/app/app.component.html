@@ -8,11 +8,13 @@
   </head>
   <body>
     <div class="container">
-      <button [routerLink]="['']">Home</button>
-      <button [routerLink]="['/user']">Account Info</button>
-      <button [routerLink]="['/artworks']">Artworks</button>
-      <button [routerLink]="['/user/wishlist']">Wishlist</button>
-      <button>Log out</button>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" [routerLink]="['']">Home</button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/user']">Account Info</button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/artworks']">Artworks</button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/user/wishlist']">Wishlist</button>
+        <button type="button" class="btn btn-secondary" >Log out</button>
+      </div>
     </div>
     <div class="footer">
       <div class="curator-chat"></div>

@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 var path = require("path");
 
+
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/AngularApp/dist/AngularApp'));
 
@@ -19,3 +20,4 @@ app.all("*", (req, res, next) => {
 app.listen(5000, function () {
     console.log("listening on port 5000");
 });
+
