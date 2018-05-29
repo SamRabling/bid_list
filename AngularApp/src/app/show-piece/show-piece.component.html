@@ -1,3 +1,11 @@
-<p>
-  show-piece works!
-</p>
+<div class="main-content">
+  <img class="art_photo" [src]="showArt['img']" alt="art-img">
+  <div class="Jumbotron">
+    <h3>Info:</h3>
+    <p>Title: {{ showArt['title'] }}</p>
+    <p>Artist: {{ showArt['artist'] }}</p>
+    <p>Medium: {{ showArt['medium'] }}</p>
+    <p>Interested:{{ showArt['interested'] }} </p>
+    <button type="button" class="btn btn-dark">Interested</button> <button type="button" class="btn btn-info">Back</button>
+  </div>
+</div>

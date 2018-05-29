@@ -3,9 +3,9 @@
 
 <h1 class="display-5">Upcoming Auctions</h1>
 <div class="container">
+  <img class="artwork-gateway" src="https://d32dm0rphc51dk.cloudfront.net/HTV1D0us9rXUriyDi-3RZA/large.jpg" alt="home-img">
   <div class="overlay">
-    <a><img class="artwork-gateway" [routerLink]="['/artworks']"></a>
-    <p class="text">Browse the Collection</p>
+    <a [routerLink]="['/artworks']"><p class="text">Browse the Collection</p></a>
   </div>
 </div>
-
+<router-outlet></router-outlet>

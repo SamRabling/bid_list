@@ -1,18 +1,22 @@
 .main-content{
+  margin-top:80px;
   height:600px;
   margin-left:80px;
   margin-right:80px;
 }
 
 .footer{
-  vertical-align: bottom;
-  width: auto;
-  height: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  line-height: 40px; /* Vertically center the text there */
 }
 
-.container
+.navbar
 {
-  max-width: 900px;
+  max-width: 780px;
   margin: 0 auto;
   text-align: center;
 }

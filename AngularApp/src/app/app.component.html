@@ -7,7 +7,7 @@
     <title>Bid List</title>
   </head>
   <body>
-    <div class="container">
+    <nav class="navbar fixed-top ">
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-secondary" [routerLink]="['']">Home</button>
         <button type="button" class="btn btn-secondary" [routerLink]="['/user']">Account Info</button>
@@ -15,15 +15,17 @@
         <button type="button" class="btn btn-secondary" [routerLink]="['/user/wishlist']">Wishlist</button>
         <button type="button" class="btn btn-secondary" >Log out</button>
       </div>
-    </div>
+    </nav>
     <div class="main-content">
       <router-outlet></router-outlet>
     </div>
-    <div class="footer">
-        <div class="curator-chat card"></div>
+    <footer class="footer fixed-bottom">
+        <div class="curator-chat card">
+          <p>i'm a footer</p>
+        </div>
         <div class="other-user-chat"></div>
         <div class="QA-chat"></div>
-    </div>
+    </footer>
 
 
 

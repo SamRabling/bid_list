@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'user/wishlist', component: WishlistComponent },
   // add id to above
   { path: 'artworks', component: ArtWorksComponent },
-  { path: 'artworks/show', component: ShowPieceComponent }
+  { path: 'artworks/show/:id', component: ShowPieceComponent }
   // add id to above
 ];
 
