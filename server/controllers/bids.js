@@ -36,13 +36,51 @@ module.exports = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: req.body.password,
         });
-        user.save(function (err) {
+        console.log("processed info");
+        bcrypt.hash(req.body.password, 10)
+        .then( hashed => {
+            user.password = hashed;
+            console.log("hashed");
+            user.save(function (err, user) {
+                console.log("saved")
+                if (err) {
+                    res.json({status: false, data: err});
+                    res.redirect("/");
+                } else {
+                    req.session.id = user._id;
+                    req.session.email = user.email;
+                    console.log(user.email)
+                    res.json({ status: true, data: user });
+                    res.redirect("/bids");
+                }
+            })
+        })
+        .catch(error => {
+            console.log("oops! something went wrong", error);
+            res.json({ status: false, data: error.message});
+            res.redirect("/");
+        });
+    },
+
+    logIn: function( req, res ) {
+        console.log(" req.body: ", req.body);
+        User.findOne({ email: req.body.email }, function (err, user) {
             if (err) {
-                res.json({ status: false });
-            } else {
-                res.json({ status: true, data: user });
+                res.redirect("/");
+            }
+            else {
+                bcrypt.compare(req.body.password, user.password)
+                    .then(result => {
+                        req.session.id = user._id;
+                        req.session.email = user.email;
+                        res.render("/bids");
+                    })
+                    .catch(error => {
+                        console.log("oops! something went wrong", error);
+                        res.json({ status: false, data: error.message });
+                        res.redirect("/");
+                    });
             }
         });
     },
@@ -115,7 +153,6 @@ module.exports = {
                             res.json({ status: true, updatedArt });
                         }
                     });
-
             }
         });
     },
