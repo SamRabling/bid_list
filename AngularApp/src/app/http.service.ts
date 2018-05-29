@@ -8,6 +8,14 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
 
+  register(userData) {
+    return this._http.post('/newUser', userData);
+  }
+
+  login(userLog) {
+    return this._http.post('/logIn', userLog);
+  }
+
   showMeArt() {
     return this._http.get('/bids');
   }

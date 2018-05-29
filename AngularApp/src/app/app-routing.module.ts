@@ -6,9 +6,11 @@ import { HomeComponent } from './home/home.component';
 import { ShowPieceComponent } from './show-piece/show-piece.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponent },
   { path: 'user', component: UserDashboardComponent },
   { path: 'user/wishlist', component: WishlistComponent },
   // add id to above
