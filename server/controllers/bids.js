@@ -70,8 +70,8 @@ module.exports = {
             else {
                 bcrypt.compare(req.body.password, user.password)
                     .then(result => {
-                        req.session.id = user._id;
-                        req.session.email = user.email;
+                        console.log(user.email)
+                        res.json({ status: true, data: user });
                     })
                     .catch(error => {
                         console.log("oops! something went wrong", error);
