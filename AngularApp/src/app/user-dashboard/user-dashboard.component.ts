@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserDashboardComponent implements OnInit {
   user;
+  showUser: {};
 
   constructor(
     private locker: Locker,
@@ -24,6 +25,16 @@ export class UserDashboardComponent implements OnInit {
     } else {
       this.user = user;
     }
+  }
+
+  oneUser() {
+    const email = this.user.email;
+    const obsevable = this._httpService.oneUser(email);
+    obsevable.subscribe(data => {
+      console.log(data);
+      this.showUser = data['data'];
+      console.log(this.showUser);
+    });
   }
 
 }

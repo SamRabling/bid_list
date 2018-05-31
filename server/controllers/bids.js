@@ -103,8 +103,8 @@ module.exports = {
     },
 
     retrieveUser: function (req, res, err) {
-        var id = req.params.id
-        User.findOne({ _id: id }, function (err, user) {
+        var email = req.params.email
+        User.findOne({ _email: email }, function (err, user) {
             if (err) {
                 res.json({ status: false });
             } else {

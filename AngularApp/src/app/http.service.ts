@@ -24,19 +24,11 @@ export class HttpService {
     return this._http.post('/bids/user', newUser);
   }
 
-  editUser(id: string, updatedUser) {
-    return this._http.post(`/bids/user/${id}`, updatedUser);
-  }
-
   oneArt(id: string) {
     return this._http.get(`/bids/art/${id}`);
   }
 
-  oneUser(id: string) {
-    return this._http.get(`/bids/user/${id}`);
-  }
-
-  deleteProduct(id: string, destroyedProd) {
-    return this._http.post(`/products/remove/${id}`, destroyedProd);
+  oneUser(email: string) {
+    return this._http.get(`/bids/user/${email}`);
   }
 }
