@@ -2,26 +2,30 @@
   crossorigin="anonymous">
 
 <body>
+  <div *ngIf="errors" class="alert alert-danger" role="alert" >
+    {{ errors }}
+  </div>
+
   <div class="main-content">
-    <form class="form-signin login">
+    <form class="form-signin login" (submit)="registerUser()">
       <h2 class="form-signin-heading">Don't have an account?</h2>
       <label for="inputFirst" class="sr-only">First Name</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="First Name" required autofocus>
+      <input type="text"  class="form-control" placeholder="First Name" name="firstName" [(ngModel)]="userInfo.firstName" required autofocus>
       <label for="inputLast" class="sr-only">Last Name</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Last Name" required autofocus>
+      <input type="text" class="form-control" placeholder="Last Name" name="lastName" [(ngModel)]="userInfo.lastName" required autofocus>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" class="form-control" placeholder="Email address" name="email" [(ngModel)]="userInfo.email" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password"  class="form-control" placeholder="Password" name="password" [(ngModel)]="userInfo.password" required>
       <button class="btn btn-lg btn-dark btn-block" type="submit">Register</button>
     </form>
 
-    <form class="form-signin ">
+    <form class="form-signin" (submit)="loginUser()">
       <h2 class="form-signin-heading">Please sign in</h2>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" [(ngModel)]="loginInfo.email" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" [(ngModel)]="loginInfo.password" required>
       <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
     </form>
 

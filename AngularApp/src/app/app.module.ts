@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LockerModule, Locker, DRIVERS } from 'angular-safeguard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +28,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    LockerModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

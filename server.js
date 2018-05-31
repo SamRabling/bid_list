@@ -2,17 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 var path = require("path");
-const session = require("express-session");
 const bcrypt = require('bcrypt-as-promised');
-
-// sessions
-app.set('trust proxy', 1)
-app.use(session({
-    secret: "UnTiTlEd_(pOrTrAiT_Of_rOsS)_By_Felix_Gonzalez-Torres",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 10000 }
-}));
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/AngularApp/dist/AngularApp'));

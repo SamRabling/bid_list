@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 var User = mongoose.model("user");
 var Art = mongoose.model("art");
+const bcrypt = require('bcrypt-as-promised');
 
 module.exports = {
     index: function (req, res) {
@@ -43,23 +44,20 @@ module.exports = {
             user.password = hashed;
             console.log("hashed");
             user.save(function (err, user) {
+                console.log(err)
                 console.log("saved")
                 if (err) {
                     res.json({status: false, data: err});
-                    res.redirect("/");
+                    console.log(data)
                 } else {
-                    req.session.id = user._id;
-                    req.session.email = user.email;
                     console.log(user.email)
                     res.json({ status: true, data: user });
-                    res.redirect("/bids");
                 }
             })
         })
         .catch(error => {
             console.log("oops! something went wrong", error);
             res.json({ status: false, data: error.message});
-            res.redirect("/");
         });
     },
 
@@ -67,19 +65,17 @@ module.exports = {
         console.log(" req.body: ", req.body);
         User.findOne({ email: req.body.email }, function (err, user) {
             if (err) {
-                res.redirect("/");
+                res.json({ status: false, data: err });
             }
             else {
                 bcrypt.compare(req.body.password, user.password)
                     .then(result => {
                         req.session.id = user._id;
                         req.session.email = user.email;
-                        res.render("/bids");
                     })
                     .catch(error => {
                         console.log("oops! something went wrong", error);
                         res.json({ status: false, data: error.message });
-                        res.redirect("/");
                     });
             }
         });

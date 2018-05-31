@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import { Router } from '@angular/router';
+import { Locker, DRIVERS } from 'angular-safeguard';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-art-works',
@@ -10,10 +11,21 @@ import { Router } from '@angular/router';
 export class ArtWorksComponent implements OnInit {
   arts = [];
   id: any;
+  user;
 
-  constructor(private _httpService: HttpService, private _router: Router) { }
+  constructor(
+    private _httpService: HttpService,
+    private _router: Router,
+    private locker: Locker,
+    private route: ActivatedRoute ) { }
 
   ngOnInit() {
+    const user = this.locker.get(DRIVERS.SESSION, 'user');
+    if (!user) {
+      this._router.navigate(['']);
+    } else {
+      this.user = user;
+    }
     this.allArt();
   }
 
