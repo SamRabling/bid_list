@@ -14,6 +14,8 @@ export class ShowPieceComponent implements OnInit {
   id: any;
   art_params: any;
   user;
+  email: string;
+  errors: string;
 
   constructor(
     private locker: Locker,
@@ -33,6 +35,7 @@ export class ShowPieceComponent implements OnInit {
     this.oneArt(this.id);
     });
     this.showArt = { title: '', artist: '', medium: '', img: '', interested: '' };
+    this.email = this.user.email;
   }
 
   oneArt(id: string) {
@@ -40,9 +43,17 @@ export class ShowPieceComponent implements OnInit {
     obsevable.subscribe(data => {
       console.log(data);
       this.showArt = data['data'];
-      console.log(this.showArt);
+      console.log(this.user.email);
     });
   }
 
+  addWishlist(id: string, user) {
+    console.log(id);
+    const observable = this._httpService.wishlist(id, user);
+    observable.subscribe( data => {
+      if (data['status'] === false) {
+        this.errors = data['error']['message'];
+      }
+    });
+  }
 }
-

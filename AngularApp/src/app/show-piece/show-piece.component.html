@@ -6,6 +6,6 @@
     <p>Artist: {{ showArt['artist'] }}</p>
     <p>Medium: {{ showArt['medium'] }}</p>
     <p>Interested:{{ showArt['interested'] }} </p>
-    <button type="button" class="btn btn-dark">Interested</button> <button type="button" class="btn btn-info">Back</button>
+    <button type="button" class="btn btn-dark" (click)="addWishlist(showArt['_id'], user.email)">Interested</button> <button type="button" class="btn btn-info" [routerLink]="['/artworks']">Back</button>
   </div>
 </div>

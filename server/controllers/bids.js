@@ -116,6 +116,7 @@ module.exports = {
 
     interested: function (req, res, err) {
         var id = req.params.id
+        var email = req.params.email
         Art.findById({ _id: id }, function (err, art) {
             if (err) {
                 res.json(err);
@@ -132,6 +133,22 @@ module.exports = {
 
             }
         });
+
+        User.findOne({ email: email}, function( err, user) {
+            if (err) {
+                res.json(err);
+            } else {
+                user.wishlist.push(id);
+                user.save(function (err) {
+                    if(err) {
+                        res.json({status:false, data:err});
+                    } else {
+                        res.json({status:true, data: user});
+                        console.log(user);
+                    }
+                });
+            }
+        })
     },
 
     uninterested: function (req, res, err) {
@@ -151,6 +168,21 @@ module.exports = {
                     });
             }
         });
-    },
+        User.findOne({ email: email }, function (err, user) {
+            if (err) {
+                res.json(err);
+            } else {
+                user.wishlist.pop(id);
+                user.save(function (err) {
+                    if (err) {
+                        res.json({ status: false, data: err });
+                    } else {
+                        res.json({ status: true, data: user });
+                        console.log(user);
+                    }
+                });
+            }
+        })
+    }
 
 }

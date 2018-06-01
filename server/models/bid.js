@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     lastName: { type: String, required: [true, "User's last name is required."], minlength: 2 },
     email: { type: String, unique: [true, "We already have this email on file."], required: [true, "You must provide and email"], match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/] },
     password: { type: String, minlength: 6 },
-    art: [ArtSchema]
+    wishlist: {type: Array, "default" : [] }
 })
 
 mongoose.model('user', UserSchema)
