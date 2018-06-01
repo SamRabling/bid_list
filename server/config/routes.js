@@ -9,6 +9,6 @@ module.exports = function (app) {
     app.post("/bids/user", bids.createUser);
     app.get("/bids/art/:id", bids.showPiece);
     app.get("/bids/user/:id", bids.retrieveUser);
-    app.put("/bids/interested/:id", bids.interested);
-    app.put("/bids/uninteresed/:id", bids.uninterested);
+    app.post("/bids/interested/:id/:email", bids.interested);
+    app.post("/bids/uninteresed/:id", bids.uninterested);
 }

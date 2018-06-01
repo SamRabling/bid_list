@@ -47,12 +47,13 @@ export class ShowPieceComponent implements OnInit {
     });
   }
 
-  addWishlist(id: string, user) {
+  addWishlist(id: string, email: string) {
     console.log(id);
-    const observable = this._httpService.wishlist(id, user);
+    const observable = this._httpService.wishlist(id, email);
     observable.subscribe( data => {
       if (data['status'] === false) {
         this.errors = data['error']['message'];
+        this._router.navigate(['user/wishlist']);
       }
     });
   }

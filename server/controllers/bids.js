@@ -115,25 +115,20 @@ module.exports = {
 
 
     interested: function (req, res, err) {
+        console.log("got request")
         var id = req.params.id
-        var email = req.params.email
         Art.findById({ _id: id }, function (err, art) {
             if (err) {
                 res.json(err);
             } else {
                 art.interested += 1,
-                art.save(function (err, updatedArt) {
-                    if (err) {
-                        res.json({ status: false });
-                    }
-                    else {
-                        res.json({ status: true, updatedArt });
-                    }
-                });
+                art.save();
 
             }
         });
-
+        var id = req.params.id
+        var email = req.params.email
+        console.log(email);
         User.findOne({ email: email}, function( err, user) {
             if (err) {
                 res.json(err);

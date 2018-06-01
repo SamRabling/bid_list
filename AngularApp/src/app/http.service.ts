@@ -28,7 +28,7 @@ export class HttpService {
     return this._http.get(`/bids/art/${id}`);
   }
 
-  wishlist(id: string, user) {
-    return this._http.post(`/bids/interested/${id}`, user);
+  wishlist(id: string, email) {
+    return this._http.post(`/bids/interested/${id}/${email}`, email);
   }
 }
